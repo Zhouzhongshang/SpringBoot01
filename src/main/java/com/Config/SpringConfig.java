@@ -32,7 +32,7 @@ public class SpringConfig {
     private String jdbcUrl;
     @Value("${jdbc.driverClassName}")
     private String jdbcDriverClassName;
-    @Value("jdbc.username")
+    @Value("${jdbc.username}")
     private String jdbcUsername;
     @Value("${jdbc.password}")
     private String jdbcPassword;
