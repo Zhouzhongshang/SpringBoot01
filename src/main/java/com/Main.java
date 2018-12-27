@@ -2,6 +2,8 @@ package com;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.Config.SpringConfig;
@@ -17,6 +19,8 @@ public class Main {
         // 在Spring容器中获取Bean对象
         UserService userService = context.getBean(UserService.class);
         
+        /*SpringConfig configBean = context.getBean(SpringConfig.class);
+        DataSource dataSource = configBean.dataSource();*/
         // 调用对象中的方法
         List<User> list = userService.queryUserList();
         for (User user : list) {

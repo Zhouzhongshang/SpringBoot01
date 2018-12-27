@@ -2,27 +2,24 @@ package cn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.solr.SolrRepositoriesAutoConfiguration;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
-@SpringBootApplication//(exclude={SolrRepositoriesAutoConfiguration.class})
-@Configuration
-@Controller
-public class HelloApplication {
-
-
-	@RequestMapping("/hello")
-	@ResponseBody
-	public String Hello(){
-		return "Hello Application";
+@SpringBootApplication // (exclude={SolrRepositoriesAutoConfiguration.class})
+@ServletComponentScan
+public class HelloApplication extends SpringBootServletInitializer {
+	/**
+	 * war项目启动
+	 */
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(HelloApplication.class);
 	}
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        SpringApplication.run(HelloApplication.class, args);
+		SpringApplication.run(HelloApplication.class, args);
 	}
 
 }
