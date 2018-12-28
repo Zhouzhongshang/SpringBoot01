@@ -13,11 +13,15 @@ import cn.pojo.Category;
 @Mapper
 public interface CategoryMapper {
 
+	/**
+	 * 查询所有记录：分页查询
+	 * @return
+	 */
 	@Select("select * from Category_")
 	List<Category> findAll();
 
 	/**
-	 * 增删该查操作
+	 * 增删改查操作 #sql注入问题有效的防止
 	 * insert into biao (name) values (#{name})
 	 * select * from biao where id=#{id}
 	 * delete from biao where id=#{id}
@@ -27,7 +31,7 @@ public interface CategoryMapper {
 	public int save(Category ca);
 
 	@Delete("delete from category_ where id=#{id} ")
-	public int delete(int id);
+	public void delete(int id);
 
 	@Select("select * from category_ where id= #{id} ")
 	public Category get(int id);

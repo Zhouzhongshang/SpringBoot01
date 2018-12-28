@@ -37,6 +37,7 @@ public class SpringConfig {
     @Value("${jdbc.password}")
     private String jdbcPassword;
     
+    @Bean
     public DataSource dataSource(){
     	 BoneCPDataSource boneCPDataSource = new BoneCPDataSource();
     	 // 数据库驱动

@@ -48,7 +48,7 @@ public class ShowView_Excell {
     		 , @RequestParam(value="start" , defaultValue = "0")int Start){
     	 PageHelper.startPage(Start, Size, "id desc");
     	 List<Category> findAll = mapper.findAll();
-    	 //有参构造
+    	 //有参构造 ：页面对象
     	 PageInfo<Category> pageInfo = new PageInfo<>(findAll);
     	 
         /* for (Category category : findAll) {
@@ -71,8 +71,8 @@ public class ShowView_Excell {
      }
      //删除
      @RequestMapping("/delete")
-     public String delete(int id){
-    	 mapper.delete(id);
+     public String delete(Category c){
+    	 mapper.delete(c.getId());
     	 return "redirect:chaxun";
      }
      //更新
