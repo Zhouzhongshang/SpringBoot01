@@ -7,6 +7,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,7 +47,7 @@ public class ShowView_Excell {
       * @param model
       * @return
       */
-     @RequestMapping("/chaxun")
+     @GetMapping("/categories")
      public String listCategory(Model model 
     		 ,@RequestParam(value="Size" , defaultValue = "2") int Size
     		 , @RequestParam(value="start" , defaultValue = "0")int Start){
@@ -64,26 +69,27 @@ public class ShowView_Excell {
       * @return
       */
      //添加
-     @RequestMapping("/add")
+     @PostMapping("/categories")
      public String add(Category c){
     	 mapper.save(c);
-    	 return "redirect:chaxun";
+    	 return "redirect:/categories";
      }
      //删除
-     @RequestMapping("/delete")
+     @DeleteMapping("/categories/{id}")
      public String delete(Category c){
     	 mapper.delete(c.getId());
-    	 return "redirect:chaxun";
+    	 return "redirect:/categories";
      }
+     
      //更新
-     @RequestMapping("/update")
+     @PutMapping("/categories/{id}")
      public String dpdate(Category c){
     	 mapper.update(c);
-    	return "redirect:chaxun";
+    	return "redirect:/categories";
      }
      //单个查询
-     @RequestMapping("/get")
-     public String get(int id, Model model){
+     @GetMapping("/categories/{id}")
+     public String get(@PathVariable("id") int id, Model model){
     	 Category c = mapper.get(id);
     	 model.addAttribute("c",c);
     	 return "edit";

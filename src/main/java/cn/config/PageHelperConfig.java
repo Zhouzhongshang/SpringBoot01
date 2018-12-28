@@ -11,6 +11,8 @@ import com.github.pagehelper.PageHelper;
 public class PageHelperConfig {
 	/**
 	 * 这个类来作为配置类 相当于一个xml文件 把这个对象让spring管理起来
+	 * 拿到PageHelper这个类的时候就相当于已经做了相关的properties初始化
+	 * 
 	 */
 	@Bean
 	public PageHelper pageHelper() {
