@@ -4,12 +4,14 @@ import java.nio.charset.Charset;
 import java.util.Properties;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.StringHttpMessageConverter;
 
 import com.github.pagehelper.PageHelper;
 
 @Configuration
+@ComponentScan(value = "cn")
 public class Config {
 	/**
 	 *Spring容器管理的对象，用的时候就初始化。
