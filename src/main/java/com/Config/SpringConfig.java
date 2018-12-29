@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 
 import com.Dao.UserDAO;
@@ -21,6 +22,9 @@ import com.jolbox.bonecp.BoneCPDataSource;
 @ComponentScan(value = "com") //配置扫描包
 @PropertySource(value={"classpath:jdbc.properties"}
 ,	ignoreResourceNotFound = true)//加载属性文件
+@ImportResource(value={"classpath:***.xml","claspath:xxxx.xml"})//加载xml文件
+
+
 public class SpringConfig {
     
     @Bean // 通过该注解来表明是一个Bean对象，相当于xml中的<bean>
