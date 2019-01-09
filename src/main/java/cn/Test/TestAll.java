@@ -39,10 +39,6 @@ public class TestAll {
 		}
 	}
 	
-	/*@Test
-	public void test(){
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-		Handler_Excell service = context.getBean(Handler_Excell.class);
-		System.out.println("mapper:"+service);
-	}*/
+	
+	
 }
